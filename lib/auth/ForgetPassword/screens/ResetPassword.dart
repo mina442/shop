@@ -25,7 +25,7 @@ class ResetPassword extends StatelessWidget {
         title: Text('ResetPassword',
             style: Theme.of(context)
                 .textTheme
-                .headline1!
+                .displayLarge!
                 .copyWith(color: AppColor.grey)),
       ),
       body: GetBuilder<ResetPasswordControllerImp>(

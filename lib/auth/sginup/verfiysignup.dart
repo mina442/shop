@@ -22,7 +22,7 @@ class VerfiyCodeSignUp extends StatelessWidget {
         title: Text('Verification Code',
             style: Theme.of(context)
                 .textTheme
-                .headline1!
+                .displayLarge!
                 .copyWith(color: AppColor.grey)),
       ),
       body: Container(

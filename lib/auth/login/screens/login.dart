@@ -9,6 +9,7 @@ import 'package:shop_app/auth/widgets/customtextbodyauth.dart';
 import 'package:shop_app/auth/widgets/customtexttitleauth.dart';
 import 'package:shop_app/auth/widgets/logoauth.dart';
 import 'package:shop_app/core/constant/color.dart';
+import 'package:shop_app/core/constant/imgaeasset.dart';
 import 'package:shop_app/core/functions/alertexitapp.dart';
 import 'package:shop_app/core/functions/validinput.dart';
 
@@ -26,7 +27,7 @@ class Login extends StatelessWidget {
         title: Text('Sign In',
             style: Theme.of(context)
                 .textTheme
-                .headline1!
+                .displayLarge!
                 .copyWith(color: AppColor.grey)),
       ),
       body: WillPopScope(
@@ -85,6 +86,19 @@ class Login extends StatelessWidget {
                     onPressed: () {
                       controller.login();
                     }),
+                // const SizedBox(height: 40),
+                // InkWell(onTap: () {  },
+                // child: Row(
+                //   children: [
+                //     Image.asset(AppImageAsset.Google)
+                //   ],
+                // )),
+                // InkWell(onTap: () {  },
+                // child: Row(
+                //   children: [
+                //     Image.asset(AppImageAsset.facebook)
+                //   ],
+                // )),
                 const SizedBox(height: 40),
                 CustomTextSignUpOrSignIn(
                   textone: "16".tr,
@@ -92,7 +106,8 @@ class Login extends StatelessWidget {
                   onTap: () {
                     controller.goToSignUp();
                   },
-                )
+                ),
+
               ]),
             ),
           )),
