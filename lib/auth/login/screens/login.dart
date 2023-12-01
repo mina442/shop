@@ -86,17 +86,36 @@ class Login extends StatelessWidget {
                     onPressed: () {
                       controller.login();
                     }),
-                // const SizedBox(height: 40),
-                // InkWell(onTap: () {  },
+                const SizedBox(height: 40),
+                InkWell(onTap: () { 
+                  controller.GoogleSignInMethod();
+                 },
+                
+                child: Row(
+                
+                  // crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(AppImageAsset.Google)
+                 ,SizedBox(width:10,)
+                  ,Text(  "15".tr + " "+ "With Google",
+                    textAlign: TextAlign.right,)
+                  ],
+                )),
+                //  const SizedBox(height: 40),
+                // InkWell(onTap: () { 
+                //  controller.signInWithFacebook();
+                //  },
                 // child: Row(
-                //   children: [
-                //     Image.asset(AppImageAsset.Google)
-                //   ],
-                // )),
-                // InkWell(onTap: () {  },
-                // child: Row(
+                //   // crossAxisAlignment: CrossAxisAlignment.center,
+                //   mainAxisAlignment: MainAxisAlignment.center,
                 //   children: [
                 //     Image.asset(AppImageAsset.facebook)
+                //  ,SizedBox(width:10,)
+                //   ,Text( "15".tr + " "+ "With facebook"
+                //   ,
+                //     textAlign: TextAlign.right,
+                //   )
                 //   ],
                 // )),
                 const SizedBox(height: 40),

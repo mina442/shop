@@ -73,11 +73,13 @@ dependencies:
   fluttericon: ^2.0.0
   dartz: ^0.10.1
   # Google Auth
-  google_sign_in: ^6.1.5  
+  google_sign_in: ^6.1.6  
   device_preview: ^1.1.0
   responsive_builder: ^0.7.0
   image_pickers: ^2.0.0+2
   flutter_otp_text_field: ^1.1.1
+  firebase_auth: ^4.13.0
+  # flutter_facebook_auth: '^3.5.0'
   # https://pub.dev/packages/flutter_otp_text_field/install
 dev_dependencies:
   flutter_test:

@@ -50,9 +50,15 @@
 // import 'package:ecommercecourse/core/constant/routes.dart';
 // import 'package:e_commerce/Controller/auth/login_controller.dart';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shop_app/auth/firestore_user.dart';
+import 'package:shop_app/auth/sginup/Models/UserModel.dart';
 import 'package:shop_app/core/constant/routes.dart';
+import 'package:shop_app/core/services/services.dart';
 
 abstract class SignUpController extends GetxController {
   signUp();
@@ -60,32 +66,50 @@ abstract class SignUpController extends GetxController {
 }
 
 class SignUpControllerImp extends SignUpController {
-  GlobalKey<FormState> formstate = GlobalKey<FormState>();
 
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
+  MyServices myServices =Get.find();
+  
   late TextEditingController username;
   late TextEditingController email;
   late TextEditingController phone;
   late TextEditingController password;
   late TextEditingController repassword;
+  FirebaseAuth _auth= FirebaseAuth.instance;
+ 
+
 
   bool isshowpassword = true;
 // Crud _crud = Crud();
   @override
-  signUp() {
-//     if (formstate.currentState!.validate()) {
+  signUp() async{
+    if (formstate.currentState!.validate()) {
+ try{
+     await _auth.createUserWithEmailAndPassword(email:email.text,password:password.text).
+     then((user)async {
+        saveUser(user);
+      });
+    //  myServices.sharedPreferences.setString("step", "2");
+     
+       Get.offNamed(AppRoute.verfiyCodeSignUp);
+    }catch(e){
+      print('${e}');
+      Get.snackbar('Error login account', '$e',colorText: Colors.black,
+      snackPosition: SnackPosition.BOTTOM,);
 
+    }
+     
 //    var response =   await _crud.postRequest(linkSignup, {
 // "username" : username.text,
 // "email" : email.text,
 // "password" : password.text,
 
 //       });
-//       if(response['status']=="success"){
-//         Get.offAllNamed(AppRoute.Home);
-//       }else{
-//         print('signup fail');
-//       }
-      Get.offNamed(AppRoute.verfiyCodeSignUp);
+      // if(response['status']=="success"){
+        // Get.offAllNamed(AppRoute.Home);
+      }else{
+        print('signup fail');
+      }
       // 1111111112121212121212121212121
       // Get.delete<LoginControllerImp>();
 
@@ -95,7 +119,20 @@ class SignUpControllerImp extends SignUpController {
     //   print("Not Valid");
     // }
   }
-
+ void saveUser(UserCredential user) async {
+    await FireStoreUser().addUserToFireStore(UserModel(
+      email:user.user?.email,
+       name: username.text == null ? user.user!.displayName : username.text,
+         phoneNumber :phone.text == null ? user.user?.phoneNumber:phone.text,
+          pic:'',
+           userId:user.user?.uid,)
+      // userId: user.user?.uid,
+      // email: user.user?.email,
+      // name: name == null ? user.user.displayName : name,
+      // pic: '',
+      // password:user.user?.pasword
+    );
+  }
   @override
   goToSignIn() {
     Get.offNamed(AppRoute.login);

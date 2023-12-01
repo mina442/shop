@@ -7,5 +7,6 @@ class MyBinding extends Bindings{
   void dependencies() {
     Get.lazyPut(()=>SignUpControllerImp(),fenix: true);
   }
+  
 
 }

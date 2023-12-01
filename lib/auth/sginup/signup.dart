@@ -116,6 +116,7 @@ import 'package:shop_app/auth/widgets/custombuttonauth.dart';
 import 'package:shop_app/auth/widgets/customtextbodyauth.dart';
 import 'package:shop_app/auth/widgets/customtexttitleauth.dart';
 import 'package:shop_app/core/constant/color.dart';
+import 'package:shop_app/core/constant/routes.dart';
 import 'package:shop_app/core/functions/alertexitapp.dart';
 import 'package:shop_app/core/functions/validinput.dart';
 
@@ -124,12 +125,15 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     SignUpControllerImp controller = Get.put(SignUpControllerImp());
+    SignUpControllerImp controller = Get.put(SignUpControllerImp());
     return Scaffold(
-      appBar: AppBar(
-             leading: const BackButton(
-          color: AppColor.black,
-        ),
+      appBar: AppBar( 
+        //      leading: const BackButton(
+           
+        //   color: AppColor.black,
+          
+        // ),
+
         centerTitle: true,
         backgroundColor: AppColor.backgroundcolor,
         elevation: 0.0,

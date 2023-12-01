@@ -6,6 +6,8 @@ import 'package:shop_app/core/localization/translation.dart';
 import 'package:shop_app/core/services/services.dart';
 import 'package:shop_app/routes.dart';
 import 'firebase_options.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +21,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  // This widget is the root of you r application.
   @override
   Widget build(BuildContext context) {
   LocaleController controller = Get.put(LocaleController());
