@@ -9,6 +9,8 @@ class AppImageAsset {
   static const String onBoardingImageThree  = "$rootImages/three.PNG" ;  
   static const String facebook              = "$rootImages/facebook.png";
   static const String Google                = "$rootImages/google.png";
+  static const String shoe                = "$rootImages/Icon_Mens Shoe.png";
+
 
   // static const String onBoardingImageFour   = "$rootImages/onboardingfour.PNG" ;  
 

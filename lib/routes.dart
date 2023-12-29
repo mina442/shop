@@ -12,7 +12,7 @@ import 'package:shop_app/auth/sginup/signup.dart';
 import 'package:shop_app/auth/sginup/verfiysignup.dart';
 import 'package:shop_app/core/constant/routes.dart';
 import 'package:shop_app/core/middleware/mymiddleware.dart';
-import 'package:shop_app/home.dart';
+import 'package:shop_app/home/home.dart';
 
 
 List<GetPage<dynamic>>? routes = [
@@ -28,7 +28,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.successSignUp, page: () => const SuccessSignUp()),
   GetPage(name: AppRoute.onBoarding, page: () => const OnBoarding()),
   GetPage(name: AppRoute.verfiyCodeSignUp, page: () => const VerfiyCodeSignUp()),
-  GetPage(name: AppRoute.Home, page: () => const Home()),
+  GetPage(name: AppRoute.Home, page: () =>  const Home()),
 
 ];
 // List<GetPage<dynamic>>? routes= [
