@@ -18,11 +18,13 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<HomeViewModel>(
+    return 
+    // GetBuilder<HomeViewModel>(
       // init: Get.find(),
-      builder: (controller) => controller.loading.value
-          ? Center(child: CircularProgressIndicator())
-          : Scaffold(
+      // builder: (controller) => controller.loading.value
+          // ? Center(child: CircularProgressIndicator())
+          // :
+           Scaffold(
               body: SingleChildScrollView(
                 child: Container(
                   padding: EdgeInsets.only(top: 100, left: 20, right: 20),
@@ -63,7 +65,7 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
+            // ),
     );
   }
 
@@ -86,11 +88,14 @@ class Home extends StatelessWidget {
   }
 
   Widget _listViewCategory() {
-    return GetBuilder<HomeViewModel>(
-      builder: (controller) => Container(
+    return 
+    // GetBuilder<HomeViewModel>(
+    //   builder: (controller) => 
+      Container(
         height: 100,
         child: ListView.separated(
-          itemCount: controller.categoryModel.length,
+          itemCount: 10,
+          // controller.categoryModel.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return Column(
@@ -104,14 +109,17 @@ class Home extends StatelessWidget {
                   width: 60,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Image.network(controller.categoryModel[index].image!),
+                    // child: Image.asset("facebook.png")
+                    child: Text('facebook'),
+                    // Image.network(controller.categoryModel[index].image!),
                   ),
                 ),
                 SizedBox(
                   height: 20,
                 ),
                 CustomText2(
-                  text: controller.categoryModel[index].name!,
+                  text: 'hello'
+                  // controller.categoryModel[index].name!,
                 ),
               ],
             );
@@ -120,23 +128,27 @@ class Home extends StatelessWidget {
             width: 20,
           ),
         ),
-      ),
+      // ),
     );
   }
 
   Widget _listViewProducts() {
-    return GetBuilder<HomeViewModel>(
-      builder: (controller) => Container(
+    return 
+    // GetBuilder<HomeViewModel>(
+    //   builder: (controller) =>
+       Container(
         height: 350,
         child: ListView.separated(
-          itemCount: controller.productModel.length,
+          itemCount: 10,
+          // controller.productModel.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                Get.to(DetailsView(
-                  model: controller.productModel[index],
-                ));
+                // Get.to(DetailsView(
+                //   model: 
+                //   // controller.productModel[index],
+                // ));
               },
               child: Container(
                 width: MediaQuery.of(context).size.width * .4,
@@ -150,17 +162,20 @@ class Home extends StatelessWidget {
                       child: Container(
                           height: 220,
                           width: MediaQuery.of(context).size.width * .4,
-                          child: Image.network(
-                            controller.productModel[index].image!,
-                            fit: BoxFit.fill,
-                          )
+                         child: Text('chaire'),
+                          // child: Image.asset("chaire.png")
+                          // Image.network(
+                          //   controller.productModel[index].image!,
+                          //   fit: BoxFit.fill,
+                          // )
                           ),
                     ),
                     SizedBox(
                       height: 20,
                     ),
                     CustomText2(
-                      text: controller.productModel[index].name!,
+                      text: 'kbbbbb',
+                      // controller.productModel[index].name!,
                       alignment: Alignment.bottomLeft,
                     ),
                     SizedBox(
@@ -168,7 +183,8 @@ class Home extends StatelessWidget {
                     ),
                     Expanded(
                       child: CustomText2(
-                        text: controller.productModel[index].description!,
+                        text: 'okmijn',
+                        // controller.productModel[index].description!,
                         color: Colors.grey,
                         alignment: Alignment.bottomLeft,
                       ),
@@ -177,7 +193,8 @@ class Home extends StatelessWidget {
                       height: 20,
                     ),
                     CustomText2(
-                      text: controller.productModel[index].price.toString() +
+                      text: "uhbthn"
+                      // controller.productModel[index].price.toString() +
                           " \$",
                       // color: primaryColor,
                       alignment: Alignment.bottomLeft,
@@ -191,7 +208,7 @@ class Home extends StatelessWidget {
             width: 20,
           ),
         ),
-      ),
+      // ),
     );
   }
 }
