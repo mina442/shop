@@ -38,7 +38,7 @@ class HomeControllerImp extends HomeController{
   List<CategoryModel> _categoryModel = [];
 
   List<ProductModel> get productModel => _productModel;
-  
+   
   List<ProductModel> _productModel = [];
   
   int _navigatorValue = 0 ;
@@ -93,6 +93,7 @@ class HomeControllerImp extends HomeController{
     initialData();
     getdata();
      getCategory();
+     getBestSellingProducts();
     super.onInit();
   }
   
@@ -118,7 +119,15 @@ class HomeControllerImp extends HomeController{
   
   @override
   getBestSellingProducts() {
-
+ _loading.value = true;
+  HomeService().getBestSelling().then((value) {
+      for (int i = 0; i < value.length; i++) {
+        _productModel.add(ProductModel.fromJson(value[i].data() as Map<dynamic, dynamic>));
+        _loading.value = false;
+        print(_productModel.length);
+      }
+      update();
+  });
   }
   
   @override

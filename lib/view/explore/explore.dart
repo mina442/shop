@@ -13,7 +13,10 @@ class Explore extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(HomeControllerImp());
     return GetBuilder<HomeControllerImp>(
-        builder: (controller) =>controller.loading.value? Center(child: CircularProgressIndicator()):Scaffold(body: SingleChildScrollView(
+        builder: (controller) =>
+        controller.loading.value? 
+        Center(child: CircularProgressIndicator()):
+        Scaffold(body: SingleChildScrollView(
                 child: Container(
                   padding: EdgeInsets.only(top: 100, left: 20, right: 20),
                   child: Column(
@@ -36,12 +39,12 @@ class Explore extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           CustomText2(
-                            text: "See all",
-                            fontSize: 16,
-                          ),
-                          CustomText2(
                             text: "Best Selling",
                             fontSize: 18,
+                          ),
+                          CustomText2(
+                            text: "See all",
+                            fontSize: 16,
                           ),
                         ],
                       ),
@@ -128,9 +131,7 @@ class Explore extends StatelessWidget {
        Container(
         height: 350,
         child: ListView.separated(
-          itemCount: 
-          // 10,
-           controller.productModel.length,
+          itemCount:controller.productModel.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return GestureDetector(
@@ -192,7 +193,7 @@ class Explore extends StatelessWidget {
                       // "uhbthn",
                       controller.productModel[index].price.toString() +
                           " \$",
-                      // color: primaryColor,
+                      color: Colors.green,
                       alignment: Alignment.bottomLeft,
                     ),
                   ],

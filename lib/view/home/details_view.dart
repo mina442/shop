@@ -17,10 +17,10 @@ class DetailsView extends StatelessWidget {
             Container(
               width: MediaQuery.of(context).size.width,
               height: 270,
-              // child: Image.network(
-              //   // model!.image,
-              //   fit: BoxFit.fill,
-              // ),
+              child: Image.network(
+                model!.image!,
+                fit: BoxFit.fill,
+              ),
             ),
             SizedBox(
               height: 15,
@@ -32,7 +32,7 @@ class DetailsView extends StatelessWidget {
                   child: Column(
                     children: [
                       CustomText2(
-                        // text: model!.name,
+                        text: model!.name!,
                         fontSize: 26,
                       ),
                       SizedBox(
@@ -56,7 +56,7 @@ class DetailsView extends StatelessWidget {
                                   text: 'Size',
                                 ),
                                 CustomText2(
-                                  // text: model!.sized,
+                              text: model!.sized!,
                                 ),
                               ],
                             ),
@@ -101,7 +101,7 @@ class DetailsView extends StatelessWidget {
                         height: 20,
                       ),
                       CustomText2(
-                        // text: model!.description,
+                        text: model!.description!,
                         fontSize: 18,
                         height: 2.5,
                       )
@@ -123,8 +123,8 @@ class DetailsView extends StatelessWidget {
                         color: Colors.grey,
                       ),
                       CustomText2(
-                        // text: ' \$' + model!.price,
-                        // color: primaryColor,
+                        text: ' \$' + model!.price!,
+                        color: Colors.green,
                         fontSize: 18,
                       )
                     ],
@@ -133,10 +133,12 @@ class DetailsView extends StatelessWidget {
                     padding: EdgeInsets.all(20),
                     width: 180,
                     height: 100,
-                    // child: CustomButton(
-                    //   onPress: () {},
-                    //   text: 'Add',
-                    // ),
+                    child: MaterialButton(
+                      color: Colors.green[600],
+                      onPressed: () {},
+                      
+                      child: Text('Add'),
+                    ),
                   ),
                 ],
               ),
